@@ -6,7 +6,7 @@ var bot = new Discord.Client();
 
 bot.on("ready", function() {
   console.log("Im Online");
-  bot.user.setActivity("Entity303 | /help", {type: "STREAMING"});
+  bot.user.setActivity("Smile 2 | s!help", {type: "STREAMING"});
 });
 
 bot.on("message", function(message) {
@@ -34,10 +34,10 @@ bot.on("message", function(message) {
       break;
     case "kick":
           let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!kUser) return message.channel.send("User Tidak Ditemukan");
+    if(!kUser) return message.channel.send("Tidak Ada Player Yang Ingin Anda Kick!");
     let kReason = args.join(" ").slice(22);
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("No can do pal!");
-    if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Anda Tidak Bisa Kick Dia!");
+    if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Player Tersebut Tidak Bisa Anda Kick!");
 
     let kickEmbed = new Discord.RichEmbed()
     .setDescription("~Kick~")
@@ -49,17 +49,17 @@ bot.on("message", function(message) {
     .addField("Reason", kReason);
 
     let kickChannel = message.guild.channels.find(`name`, "admin-log");
-    if(!kickChannel) return message.channel.send("Anda Belum Menyiapkan Text Channel Bernama `admin-log`.");
+    if(!kickChannel) return message.channel.send("Tidak Ada Channel Bernama `admin-log`.");
 
     message.guild.member(kUser).kick(kReason);
     kickChannel.send(kickEmbed);
       break;
     case "ban":
           let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!bUser) return message.channel.send("User Tidak Ditemukan");
+    if(!bUser) return message.channel.send("Tidak Ada Player Yang Ingin Anda Ban!");
     let bReason = args.join(" ").slice(22);
     if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("No can do pal!");
-    if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Anda Tidak Bisa Kick Dia!!");
+    if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Player Tersebut Tidak Bisa Anda Ban!");
 
     let banEmbed = new Discord.RichEmbed()
     .setDescription("~Ban~")
@@ -71,20 +71,20 @@ bot.on("message", function(message) {
     .addField("Reason", bReason);
 
     let incidentchannel = message.guild.channels.find(`name`, "admin-log");
-    if(!incidentchannel) return message.channel.send("Anda Belum Menyiapkan Text Channel Bernama `admin-log`.");
+    if(!incidentchannel) return message.channel.send("Tidak Ada Channel Bernama `admin-log`.");
 
     message.guild.member(bUser).ban(bReason);
     incidentchannel.send(banEmbed);
       break;
     case "afk":
           let afkuser = args.join(" ").slice(0);
-
+      
     message.delete()
     message.channel.send("**AFK » **" + `${message.author} ` + afkuser)
       break;
     case "report":
           let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!rUser) return message.channel.send("User Tidak Ditemukan");
+    if(!rUser) return message.channel.send("Tidak Ada Player Yang Ingin Anda Report!");
     let rreason = args.join(" ").slice(22);
 
     let reportEmbed = new Discord.RichEmbed()
@@ -101,7 +101,7 @@ bot.on("message", function(message) {
 
 
     message.delete().catch(O_o=>{});
-    message.channel.send("Thanks For Reporting")
+    message.channel.send("***Terima Kasih Atas Report Anda, Anda Bisa Report Lagi Setelah 10Menit***")
     reportschannel.send(reportEmbed);
       break;
     case "help":
@@ -115,8 +115,8 @@ bot.on("message", function(message) {
     .addField("/serverinfo", "To See Information About This Server")
     .addField("/afk", "For Afk");
 
+      message.channel.send("Sudah Ada Di PM!")
     return message.author.send(embed);
-      message.channel.send("telah ada di PM!")
       break;
     case "news":
           message.delete()
