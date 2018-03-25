@@ -114,7 +114,6 @@ bot.on("message", function(message) {
     .addField("s!botinfo", "Untuk Membaca Informasi Dari Bot!")
     .addField("s!serverinfo", "Untuk Membaca Info Dari Server Ini!")
     .addField("s!afk", "Untuk Afk");
-    .setTimestamp()
       
     return message.author.send(embed);
       break;
