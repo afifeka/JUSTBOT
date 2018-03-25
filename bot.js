@@ -72,8 +72,11 @@ bot.on("message", function(message) {
 
     let incidentchannel = message.guild.channels.find(`name`, "admin-log");
     if(!incidentchannel) return message.channel.send("Tidak Ada Channel Bernama `admin-log`.");
-
+      
     message.guild.member(bUser).ban(bReason);
+      
+    message.delete().catch(O_o=>{});
+    message.channel.send("***Terima Kasih Atas Report Anda, Anda Bisa Report Lagi Setelah 10Menit***")
     incidentchannel.send(banEmbed);
       break;
     case "afk":
