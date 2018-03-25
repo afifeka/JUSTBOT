@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-const PREFIX = "/"
+const PREFIX = "s!"
 
 var bot = new Discord.Client();
 
@@ -17,7 +17,7 @@ bot.on("message", function(message) {
 
   switch (args[0]) {
     case "ping":
-        message.channel.sendMessage("Pong!");
+        message.channel.sendMessage("Command Tidak Tersedia!");
       break;
     case "botinfo":
         let bicon = bot.user.displayAvatarURL;
@@ -25,10 +25,10 @@ bot.on("message", function(message) {
         .setDescription("Bot Information")
         .setColor("#15f153")
         .setThumbnail(bicon)
-        .addField("Bot Name", bot.user.username)
-        .addField("Created On", bot.user.createdAt)
+        .addField("Nama Bot", bot.user.username)
+        .addField("Dibuat Sejak", bot.user.createdAt)
         .addField("Discord Server", "➭ [Private]")
-        .addField("Developed By", "『AfifGaming』#9369");
+        .addField("Dibuat Oleh", "『AfifGaming』#9369");
 
     return message.channel.send(botembed);
       break;
@@ -43,7 +43,7 @@ bot.on("message", function(message) {
     .setDescription("~Kick~")
     .setColor("#e56b00")
     .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
-    .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
+    .addField("Kicked Oleh", `<@${message.author.id}> with ID ${message.author.id}`)
     .addField("Kicked In", message.channel)
     .addField("Tiime", message.createdAt)
     .addField("Reason", kReason);
@@ -65,7 +65,7 @@ bot.on("message", function(message) {
     .setDescription("~Ban~")
     .setColor("#bc0000")
     .addField("Banned User", `${bUser} with ID ${bUser.id}`)
-    .addField("Banned By", `<@${message.author.id}> with ID ${message.author.id}`)
+    .addField("Banned Oleh", `<@${message.author.id}> with ID ${message.author.id}`)
     .addField("Banned In", message.channel)
     .addField("Time", message.createdAt)
     .addField("Reason", bReason);
@@ -91,7 +91,7 @@ bot.on("message", function(message) {
     .setDescription("Reports")
     .setColor("#15f153")
     .addField("Reported User", `${rUser} with ID: ${rUser.id}`)
-    .addField("Reported By", `${message.author} with ID: ${message.author.id}`)
+    .addField("Reported Oleh", `${message.author} with ID: ${message.author.id}`)
     .addField("Channel", message.channel)
     .addField("Time", message.createdAt)
     .addField("Reason", rreason);
@@ -108,14 +108,14 @@ bot.on("message", function(message) {
           let embed = new Discord.RichEmbed()
     .setDescription("**BOT HELP**")
     .setColor("#15f153")
-    .addField("/ban", "Banned The Player, CMake Sure There Is Already A Channel Called **admin-log**")
-    .addField("/kick", "Kick The Player, Make Sure There Is Already A Channel Called **admin-log**")
-    .addField("/report", "Report The Player, Make Sure There Is Already A Channel Called **moderator-logs**")
-    .addField("/botinfo", "To View Bot Information")
-    .addField("/serverinfo", "To See Information About This Server")
-    .addField("/afk", "For Afk");
-
-      message.channel.send("Sudah Ada Di PM!")
+    .addField("s!ban", "Untuk Banned Player **Admin Only!**")
+    .addField("s!kick", "Untuk Kick Player **Admin Only!**")
+    .addField("s!report", "Untuk Report Player!")
+    .addField("s!botinfo", "Untuk Membaca Informasi Dari Bot!")
+    .addField("s!serverinfo", "Untuk Membaca Info Dari Server Ini!")
+    .addField("s!afk", "Untuk Afk");
+    .setTimestamp()
+      
     return message.author.send(embed);
       break;
     case "news":
@@ -134,10 +134,10 @@ bot.on("message", function(message) {
     .setDescription("Server Information")
     .setColor("#15f153")
     .setThumbnail(sicon)
-    .addField("Server Name", message.guild.name)
-    .addField("Created On", message.guild.createdAt)
-    .addField("You Joined", message.member.joinedAt)
-    .addField("Total Members", message.guild.memberCount);
+    .addField("Nama Server", message.guild.name)
+    .addField("Dibuat Sejak", message.guild.createdAt)
+    .addField("Kapan Anda Join", message.member.joinedAt)
+    .addField("Berapa Member", message.guild.memberCount);
 
     return message.channel.send(serverembed);
       break;
