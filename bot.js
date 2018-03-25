@@ -140,6 +140,13 @@ bot.on("message", function(message) {
 
     return message.channel.send(serverembed);
       break;
+case "chat":
+          message.delete()
+    let chat = new Discord.RichEmbed()
+    message.channel.send(args.join(" ")
+
+    return message.channel.send(chat)
+      break;
   }
 });
 
