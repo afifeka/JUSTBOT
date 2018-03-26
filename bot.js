@@ -29,7 +29,7 @@ bot.on("message", function(message) {
         .addField("Bot Name", bot.user.username)
         .addField("Created Since", bot.user.createdAt)
         .addField("Location", "Indonesian")
-        .addField("Discord Server", "➭ [Private]")
+        .addField("Discord Server", "➭ [https://discord.gg/T335erD]")
         .addField("Creator", "『AfifGaming』#9369");
 
     return message.channel.send(botembed);
@@ -54,6 +54,9 @@ bot.on("message", function(message) {
     if(!kickChannel) return message.channel.send("No Named Channel `admin-log`.");
 
     message.guild.member(kUser).kick(kReason);
+
+    message.delete().catch(O_o=>{});
+    message.channel.send("**The Player Has Kicked**")
     kickChannel.send(kickEmbed);
       break;
     case "ban":
@@ -121,7 +124,7 @@ bot.on("message", function(message) {
     .addField("!afk", "For Afk");
       
     message.delete().catch(O_o=>{});
-    message.channel.send("**Already In The PM!**")
+    message.channel.send("**Already In Your PM!**")
     return message.author.send(embed);
       break;
     case "news":
