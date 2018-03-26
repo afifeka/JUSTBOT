@@ -17,7 +17,7 @@ bot.on("message", function(message) {
 
   switch (args[0]) {
     case "ping":
-        message.channel.sendMessage("Command Tidak Tersedia!");
+        message.channel.sendMessage("Command Not Available");
       break;
     case "botinfo":
         let bicon = bot.user.displayAvatarURL;
@@ -25,25 +25,25 @@ bot.on("message", function(message) {
         .setDescription("Bot Information")
         .setColor("#15f153")
         .setThumbnail(bicon)
-        .addField("Nama Bot", bot.user.username)
-        .addField("Dibuat Sejak", bot.user.createdAt)
+        .addField("Bot Name", bot.user.username)
+        .addField("Created Since", bot.user.createdAt)
         .addField("Discord Server", "➭ [Private]")
-        .addField("Dibuat Oleh", "『AfifGaming』#9369");
+        .addField("Creator", "『AfifGaming』#9369");
 
     return message.channel.send(botembed);
       break;
     case "kick":
           let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!kUser) return message.channel.send("Tidak Ada Player Yang Ingin Anda Kick!");
+    if(!kUser) return message.channel.send("No Player Wants You Kick");
     let kReason = args.join(" ").slice(22);
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("No can do pal!");
-    if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Player Tersebut Tidak Bisa Anda Kick!");
+    if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("The Player Can Not Be Kick!");
 
     let kickEmbed = new Discord.RichEmbed()
     .setDescription("~Kick~")
     .setColor("#e56b00")
     .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
-    .addField("Kicked Oleh", `<@${message.author.id}> with ID ${message.author.id}`)
+    .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
     .addField("Kicked In", message.channel)
     .addField("Tiime", message.createdAt)
     .addField("Reason", kReason);
@@ -56,16 +56,16 @@ bot.on("message", function(message) {
       break;
     case "ban":
           let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!bUser) return message.channel.send("Tidak Ada Player Yang Ingin Anda Ban!");
+    if(!bUser) return message.channel.send("No Player Wants You Ban!");
     let bReason = args.join(" ").slice(22);
     if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("No can do pal!");
-    if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Player Tersebut Tidak Bisa Anda Ban!");
+    if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("The Player Can Not Be Ban!");
 
     let banEmbed = new Discord.RichEmbed()
     .setDescription("~Ban~")
     .setColor("#bc0000")
     .addField("Banned User", `${bUser} with ID ${bUser.id}`)
-    .addField("Banned Oleh", `<@${message.author.id}> with ID ${message.author.id}`)
+    .addField("Banned By", `<@${message.author.id}> with ID ${message.author.id}`)
     .addField("Banned In", message.channel)
     .addField("Time", message.createdAt)
     .addField("Reason", bReason);
@@ -76,7 +76,7 @@ bot.on("message", function(message) {
     message.guild.member(bUser).ban(bReason);
       
     message.delete().catch(O_o=>{});
-    message.channel.send("***Terima Kasih Atas Report Anda, Anda Bisa Report Lagi Setelah 10Menit***")
+    message.channel.send("**The Player Has Banned**")
     incidentchannel.send(banEmbed);
       break;
     case "afk":
@@ -94,7 +94,7 @@ bot.on("message", function(message) {
     .setDescription("Reports")
     .setColor("#15f153")
     .addField("Reported User", `${rUser} with ID: ${rUser.id}`)
-    .addField("Reported Oleh", `${message.author} with ID: ${message.author.id}`)
+    .addField("Reported By", `${message.author} with ID: ${message.author.id}`)
     .addField("Channel", message.channel)
     .addField("Time", message.createdAt)
     .addField("Reason", rreason);
@@ -104,19 +104,19 @@ bot.on("message", function(message) {
 
 
     message.delete().catch(O_o=>{});
-    message.channel.send("***Terima Kasih Atas Report Anda, Anda Bisa Report Lagi Setelah 10Menit***")
+    message.channel.send("**Thank You for Reported You!**")
     reportschannel.send(reportEmbed);
       break;
     case "help":
           let embed = new Discord.RichEmbed()
     .setDescription("**BOT HELP**")
     .setColor("#15f153")
-    .addField("s!ban", "Untuk Banned Player **Admin Only!**")
-    .addField("s!kick", "Untuk Kick Player **Admin Only!**")
-    .addField("s!report", "Untuk Report Player!")
-    .addField("s!botinfo", "Untuk Membaca Informasi Dari Bot!")
-    .addField("s!serverinfo", "Untuk Membaca Info Dari Server Ini!")
-    .addField("s!afk", "Untuk Afk");
+    .addField("s!ban", "Banned The Player **Admin Only!**")
+    .addField("s!kick", "Kick The Player **Admin Only!**")
+    .addField("s!report", "For Reported Player!")
+    .addField("s!botinfo", "To Read Information From Bots!")
+    .addField("s!serverinfo", "To Read Info From This Server!")
+    .addField("s!afk", "For Afk");
       
     return message.author.send(embed);
       break;
@@ -136,7 +136,7 @@ bot.on("message", function(message) {
     .setDescription("Server Information")
     .setColor("#15f153")
     .setThumbnail(sicon)
-    .addField("Nama Server", message.guild.name)
+    .addField("Server Name", message.guild.name)
     .addField("Dibuat Sejak", message.guild.createdAt)
     .addField("Kapan Anda Join", message.member.joinedAt)
     .addField("Berapa Member", message.guild.memberCount);
