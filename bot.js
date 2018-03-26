@@ -1,12 +1,12 @@
 const Discord = require("discord.js");
 
-const PREFIX = "s!"
+const PREFIX = "!"
 
 var bot = new Discord.Client();
 
 bot.on("ready", function() {
   console.log("Im Online");
-  bot.user.setActivity("Smile 2 | s!help", {type: "STREAMING"});
+  bot.user.setActivity("Process Beta v3.0", {type: "STREAMING"});
 });
 
 bot.on("message", function(message) {
