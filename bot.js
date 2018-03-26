@@ -17,7 +17,8 @@ bot.on("message", function(message) {
 
   switch (args[0]) {
     case "ping":
-        message.channel.sendMessage("Command Not Available");
+        .addField("Your Ping Is!", message.author.ping);
+        .setColor("#5845ff")
       break;
     case "botinfo":
         let bicon = bot.user.displayAvatarURL;
