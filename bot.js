@@ -17,7 +17,7 @@ bot.on("message", function(message) {
 
   switch (args[0]) {
     case "ping":
-        message.channel.send("Command Tidak Tersedia!");
+      message.author.ping
       break;
 
       break;
