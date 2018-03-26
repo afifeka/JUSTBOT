@@ -118,6 +118,8 @@ bot.on("message", function(message) {
     .addField("!serverinfo", "To Read Info From This Server!")
     .addField("!afk", "For Afk");
       
+    message.delete().catch(O_o=>{});
+    message.channel.send("**Already In The PM!**")
     return message.author.send(embed);
       break;
     case "news":
