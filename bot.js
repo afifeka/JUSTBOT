@@ -14,15 +14,6 @@ bot.on("message", function(message) {
   
   if (!message.content.startsWith(PREFIX)) return; 
   var args = message.content.substring(PREFIX.length).split(" ");
-  
-  let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
-
-if(!prefixes[message.guild.id]){
-  prefixes[message.guild.id] = {
-    prefixes: botconfig.prefix
-  };
-}
-let prefix = prefixes[message.guild.id].prefixes;
 
   switch (args[0]) {
     case "ping":
