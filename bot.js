@@ -17,7 +17,7 @@ bot.on("message", function(message) {
 
   switch (args[0]) {
     case "ping":
-        message.author.ping
+        message.channel.send("Command Not Found!")
       break;
       
     case "botinfo":
