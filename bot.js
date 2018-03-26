@@ -6,7 +6,7 @@ var bot = new Discord.Client();
 
 bot.on("ready", function() {
   console.log("Im Online");
-  bot.user.setActivity("Process Beta v3.0", {type: "STREAMING"});
+  bot.user.setActivity("Alpha v1.0 | !help", {type: "Listening"});
 });
 
 bot.on("message", function(message) {
