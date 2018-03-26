@@ -6,7 +6,7 @@ var bot = new Discord.Client();
 
 bot.on("ready", function() {
   console.log("Im Online");
-  bot.user.setActivity("!help | Alpha v0.3", {type: "Streaming"});
+  bot.user.setActivity("!help | Alpha v0.6", {type: "Streaming"});
 });
 
 bot.on("message", function(message) {
@@ -29,7 +29,7 @@ bot.on("message", function(message) {
         .addField("Bot Name", bot.user.username)
         .addField("Created Since", bot.user.createdAt)
         .addField("Location", "Indonesian")
-        .addField("Discord Server", "➭ [https://discord.gg/T335erD]")
+        .addField("Discord Server", "➭ [https://discord.gg/w829yw8]")
         .addField("Creator", "『AfifGaming』#9369");
 
     return message.channel.send(botembed);
@@ -121,7 +121,8 @@ bot.on("message", function(message) {
     .addField("!report", "For Reported Player!")
     .addField("!botinfo", "To Read Information From Bots!")
     .addField("!serverinfo", "To Read Info From This Server!")
-    .addField("!afk", "For Afk");
+    .addField("!afk", "For Afk")
+    .addField("!Invite", "Invite To Your Discord!");
       
     message.delete().catch(O_o=>{});
     message.channel.send("**Already In Your PM!**")
@@ -152,7 +153,7 @@ bot.on("message", function(message) {
       break;
     case "invite":
      let inviteembed = new Discord.RichEmbed()
-    .addField("Invite To Your Discord!", "➭ [Comming Soon!]")
+    .addField("Invite To Your Discord!", "➭ [https://discordapp.com/api/oauth2/authorize?client_id=427752464499081217&permissions=8&scope=bot]")
     .setColor("#15f153");
 
     return message.channel.send(inviteembed);
