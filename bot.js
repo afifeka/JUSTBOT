@@ -150,6 +150,13 @@ bot.on("message", function(message) {
 
     return message.channel.send(serverembed);
       break;
+    case "invite":
+     let inviteembed = new Discord.RichEmbed()
+    .addField("Invite To Your Discord!", "➭ [Comming Soon!]")
+    .setColor("#15f153");
+
+    return message.channel.send(inviteembed);
+      break;
   }
 });
 
