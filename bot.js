@@ -28,6 +28,7 @@ bot.on("message", function(message) {
         .setThumbnail(bicon)
         .addField("Bot Name", bot.user.username)
         .addField("Created Since", bot.user.createdAt)
+        .addField("Location", "Indonesian")
         .addField("Discord Server", "➭ [Private]")
         .addField("Creator", "『AfifGaming』#9369");
 
