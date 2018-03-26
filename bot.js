@@ -17,10 +17,9 @@ bot.on("message", function(message) {
 
   switch (args[0]) {
     case "ping":
-      message.author.ping
+        message.author.ping
       break;
-
-      break;
+      
     case "botinfo":
         let bicon = bot.user.displayAvatarURL;
         let botembed = new Discord.RichEmbed()
