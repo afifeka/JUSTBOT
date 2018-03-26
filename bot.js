@@ -17,7 +17,7 @@ bot.on("message", function(message) {
 
   switch (args[0]) {
     case "ping":
-        .addField("Your Ping Is!", message.author.ping);
+        .addField("Your Ping Is!", "${message.author.ping}");
         .setColor("#5845ff")
       break;
     case "botinfo":
