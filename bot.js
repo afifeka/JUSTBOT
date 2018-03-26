@@ -49,7 +49,7 @@ bot.on("message", function(message) {
     .addField("Reason", kReason);
 
     let kickChannel = message.guild.channels.find(`name`, "admin-log");
-    if(!kickChannel) return message.channel.send("Tidak Ada Channel Bernama `admin-log`.");
+    if(!kickChannel) return message.channel.send("No Named Channel `admin-log`.");
 
     message.guild.member(kUser).kick(kReason);
     kickChannel.send(kickEmbed);
@@ -71,7 +71,7 @@ bot.on("message", function(message) {
     .addField("Reason", bReason);
 
     let incidentchannel = message.guild.channels.find(`name`, "admin-log");
-    if(!incidentchannel) return message.channel.send("Tidak Ada Channel Bernama `admin-log`.");
+    if(!incidentchannel) return message.channel.send("No Named Channel `admin-log`.");
       
     message.guild.member(bUser).ban(bReason);
       
@@ -87,7 +87,7 @@ bot.on("message", function(message) {
       break;
     case "report":
           let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!rUser) return message.channel.send("Tidak Ada Player Yang Ingin Anda Report!");
+    if(!rUser) return message.channel.send("No Player Who Wants You Report!");
     let rreason = args.join(" ").slice(22);
 
     let reportEmbed = new Discord.RichEmbed()
@@ -100,7 +100,7 @@ bot.on("message", function(message) {
     .addField("Reason", rreason);
 
     let reportschannel = message.guild.channels.find(`name`, "moderator-logs");
-    if(!reportschannel) return message.channel.send("Tidak Ada Channel Bernama `moderator-logs`");
+    if(!reportschannel) return message.channel.send("No Named Channel `moderator-logs`");
 
 
     message.delete().catch(O_o=>{});
@@ -111,12 +111,12 @@ bot.on("message", function(message) {
           let embed = new Discord.RichEmbed()
     .setDescription("**BOT HELP**")
     .setColor("#15f153")
-    .addField("s!ban", "Banned The Player **Admin Only!**")
-    .addField("s!kick", "Kick The Player **Admin Only!**")
-    .addField("s!report", "For Reported Player!")
-    .addField("s!botinfo", "To Read Information From Bots!")
-    .addField("s!serverinfo", "To Read Info From This Server!")
-    .addField("s!afk", "For Afk");
+    .addField("!ban", "Banned The Player **Admin Only!**")
+    .addField("!kick", "Kick The Player **Admin Only!**")
+    .addField("!report", "For Reported Player!")
+    .addField("!botinfo", "To Read Information From Bots!")
+    .addField("!serverinfo", "To Read Info From This Server!")
+    .addField("!afk", "For Afk");
       
     return message.author.send(embed);
       break;
@@ -137,9 +137,9 @@ bot.on("message", function(message) {
     .setColor("#15f153")
     .setThumbnail(sicon)
     .addField("Server Name", message.guild.name)
-    .addField("Dibuat Sejak", message.guild.createdAt)
-    .addField("Kapan Anda Join", message.member.joinedAt)
-    .addField("Berapa Member", message.guild.memberCount);
+    .addField("Created Since", message.guild.createdAt)
+    .addField("Join Since", message.member.joinedAt)
+    .addField("Players", message.guild.memberCount);
 
     return message.channel.send(serverembed);
       break;
