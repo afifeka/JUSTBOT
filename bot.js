@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 
 const PREFIX = "!"
 
-const bot = new Discord.Client
+const bot = new Discord.Client({disableEveryone: true});
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
