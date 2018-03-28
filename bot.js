@@ -1,6 +1,6 @@
-const botconfig = require("./botconfig.json");
-
 const Discord = require("discord.js");
+
+const prefix = "!"
 
 const bot = new Discord.Client({disableEveryone: true});
 
@@ -194,4 +194,4 @@ bot.on("message", async message => {
   }
 });
 
-bot.login(process.env.BOT_TOKEN
+bot.login(process.env.BOT_TOKEN);
